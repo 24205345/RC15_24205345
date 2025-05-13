@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Tag Viewer — Barcelona Flickr</title>
+  <style>
+    body { font-family: Arial; padding: 40px; }
+    h1 { color: #333; }
+    .tag {
+      margin: 5px; display: inline-block;
+      padding: 6px 12px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tag:hover {
+      background: crimson;
+      color: white;
+    }
+    .gallery {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gallery img {
+      height: 150px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📸 Click a Tag to Explore Flickr Photos</h1>
+
+  <div id="tags">
+    <span class="tag" onclick="showImages('gaudi')">gaudi</span>
+    <span class="tag" onclick="showImages('church')">church</span>
+    <span class="tag" onclick="showImages('architecture')">architecture</span>
+    <span class="tag" onclick="showImages('montjuic')">montjuic</span>
+    <span class="tag" onclick="showImages('park')">park</span>
+    <span class="tag" onclick="showImages('museum')">museum</span>
+    <!-- 你可以继续添加更多标签 -->
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const data = {
+      gaudi: [
+        "https://live.staticflickr.com/65535/12345678901.jpg",
+        "https://live.staticflickr.com/65535/12345678902.jpg"
+      ],
+      church: [
+        "https://live.staticflickr.com/65535/12345678903.jpg"
+      ],
+      architecture: [
+        "https://live.staticflickr.com/65535/12345678904.jpg"
+      ],
+      montjuic: [
+        "https://live.staticflickr.com/65535/12345678905.jpg"
+      ],
+      park: [],
+      museum: []
+    };
+
+    function showImages(tag) {
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+      if (data[tag]) {
+        data[tag].forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          gallery.appendChild(img);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
