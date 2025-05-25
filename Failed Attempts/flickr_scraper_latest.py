@@ -3,8 +3,8 @@ import pandas as pd
 import time
 
 # 替换成你自己的 Flickr API key 和 secret
-api_key = '780f942b9d7f40dedec775598c956e1a'
-api_secret = '22f17d70eca55123'
+api_key = ''
+api_secret = ''
 
 # 初始化 Flickr API
 flickr = flickrapi.FlickrAPI(api_key, api_secret, format='parsed-json')
